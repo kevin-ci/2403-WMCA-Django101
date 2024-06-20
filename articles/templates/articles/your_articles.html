@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Your Articles</h1>
+
+    {% for article in articles %}
+        <div>
+            <h2>{{ article.headline }}</h2>
+            <p>{{ article.body|truncatechars:25 }}</p>
+            <p>By: {{ article.author }}</p>
+            <a href="{% url 'view_article' article.id %}">Read More</a>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
